@@ -1,6 +1,5 @@
 from flask import Flask
-from .routes.home import bp as home_bp
-from .routes.dashboard import bp as dash_bp
+from app.routes import home, dash
 
 def create_app(test_config=None):
     # set up app config
@@ -15,7 +14,7 @@ def create_app(test_config=None):
         return 'hello world'
     
     # register routes
-    app.register_blueprint(home_bp)
-    app.register_blueprint(dash_bp)
+    app.register_blueprint(home)
+    app.register_blueprint(dash)
 
     return app
